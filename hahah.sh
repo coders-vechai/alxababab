@@ -411,7 +411,7 @@ do
                 echo "$sln3 -6 -n -a -ocUSE_TCP_FASTOPEN -p\$port -i$ipv4s -e\$line3"
                 echo flush
                 echo ""
-                echo $ipv4s:\$port:\$line4:\$line5 >> /root/3proxy/proxyler.txt
+                echo $ipv4s:\$port:\$line4:\$line5 >> /root/3proxy/list.txt
         ((port+=1))
         ((count+=1))
         if [ \$count -eq 90001 ]; then
@@ -456,7 +456,7 @@ do
                 echo "$sln3 -6 -n -a -ocUSE_TCP_FASTOPEN -p\$port -i$ipv4s -e\$line3"
                 echo flush
                 echo ""
-                echo $ipv4s:\$port:$kladd:$klpass >> /root/3proxy/proxyler.txt
+                echo $ipv4s:\$port:$kladd:$klpass >> /root/3proxy/list.txt
         ((port+=1))
         ((count+=1))
         if [ \$count -eq 90001 ]; then
@@ -494,7 +494,7 @@ while IFS= read -r line3 <&3 || ((eof3=1))
       !((eof3))
 do
                 echo "$sln3 -6 -n -a -ocUSE_TCP_FASTOPEN -p\$port -i$ipv4s -e\$line3"
-                echo $ipv4s:\$port >> /root/3proxy/proxyler.txt
+                echo $ipv4s:\$port >> /root/3proxy/list.txt
         ((port+=1))
         ((count+=1))
         if [ \$count -eq 90001 ]; then
@@ -554,7 +554,7 @@ while IFS= read -r line3 <&3 || ((eof3=1))
       !((eof3))
 do
                 echo "$sln3 -6 -n -a -ocUSE_TCP_FASTOPEN -p\$port -i$ipv4s -e\$line3"
-                echo $ipv4s:\$port >> /root/3proxy/proxyler.txt
+                echo $ipv4s:\$port >> /root/3proxy/list.txt
         ((port+=1))
         ((count+=1))
         if [ \$count -eq 90001 ]; then
@@ -597,7 +597,7 @@ chmod +x random3.sh
 bash random3.sh
 cd
 cd 3proxy
-rm proxyler.txt 3proxy.cfg
+rm list.txt 3proxy.cfg
 cat >/root/3proxy/3proxy.cfg <<END
 #!/bin/bash
 daemon
@@ -643,7 +643,7 @@ chmod +x random3.sh
 bash random3.sh
 cd
 cd 3proxy
-rm proxyler.txt 3proxy.cfg
+rm list.txt 3proxy.cfg
 cat >/root/3proxy/3proxy.cfg <<END
 #!/bin/bash
 daemon
@@ -951,11 +951,11 @@ cd /root/
 slrt2=$srlrct2
 klas=\$(cat /root/3proxy/sst/pas.txt)
 if [ \$slrt2 = "proxy2" ] ; then
-zip --password \$klas testa.zip sifreli.txt
+zip --password \$klas List-proxy.zip sifreli.txt
 elif [ \$slrt2 = "proxy3" ] ; then
-zip --password \$klas testa.zip sifresiz.txt
+zip --password \$klas List-proxy.zip sifresiz.txt
 fi
-URL=\$(curl -k --upload-file ./testa.zip https://free.keep.sh)
+URL=\$(curl -k --upload-file ./List-proxy.zip https://free.keep.sh)
 clear && printf '\e[3J'
 history -c
 echo ""
@@ -970,11 +970,11 @@ cd /root/
 apt install zip -y
 klas=${rnds}
 if [ $srlrct2 = "proxy2" ] ; then
-zip --password $klas testa.zip sifreli.txt
+zip --password $klas List-proxy.zip sifreli.txt
 elif [ $srlrct2 = "proxy3" ] ; then
-zip --password $klas testa.zip sifresiz.txt
+zip --password $klas List-proxy.zip sifresiz.txt
 fi
-URL=$(curl -k --upload-file ./testa.zip https://free.keep.sh)
+URL=$(curl -k --upload-file ./List-proxy.zip https://free.keep.sh)
 if [[ $srlrct2 = "proxy1" ]] ; then
 chmod +x /etc/protest/brn2.txt /etc/protest/brn.txt
 adsr1=$(head -1 /etc/protest/brn.txt)
@@ -1091,8 +1091,8 @@ mkdir sst
 cat > /root/linkal.sh << END
 cd /root/3proxy/
 klas=\$(cat /root/3proxy/sst/pas.txt)
-zip --password \$klas testa.zip proxyler.txt
-URL=\$(curl -k --upload-file ./testa.zip https://free.keep.sh)
+zip --password \$klas List-proxy.zip list.txt
+URL=\$(curl -k --upload-file ./List-proxy.zip https://free.keep.sh)
 clear && printf '\e[3J'
 history -c
 echo ""
@@ -1107,8 +1107,8 @@ END
 cd /root/3proxy/
 apt install zip -y
 klas=${rnds}
-zip --password $klas testa.zip proxyler.txt
-URL=$(curl -k --upload-file ./testa.zip https://free.keep.sh)
+zip --password $klas List-proxy.zip list.txt
+URL=$(curl -k --upload-file ./List-proxy.zip https://free.keep.sh)
 
 if [[ $srlrct2 = "proxy1" ]] ; then
 chmod +x /etc/protest/brn2.txt /etc/protest/brn.txt
